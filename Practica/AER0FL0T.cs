@@ -33,6 +33,7 @@ namespace Practica
         public AER0FL0TS()
         {
             this.aER0FL0Ts = new List<AER0FL0T>();
+            FillList(7);
         }
         public AER0FL0TS(List<AER0FL0T> aER0FL0Ts)
         {
@@ -65,36 +66,37 @@ namespace Practica
             }
         }
 
-        public void FillList(int size) //разобраться
+        public void FillList(int size)
         {
             for (int i = 0; i < size; i++)
             {
+                aER0FL0Ts.Add(new AER0FL0T());
                 Console.WriteLine("Введите данные по {0}-ому рейсу:", i + 1);
-                Console.Write("Пункт назначения:");
+                Console.WriteLine("Пункт назначения:");
                 aER0FL0Ts[i].Destination = Console.ReadLine();
-                Console.Write("Номер рейса:");
+                Console.WriteLine("Номер рейса:");
                 aER0FL0Ts[i].Number = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Тип самолёта:");
+                Console.WriteLine("Тип самолёта:");
                 aER0FL0Ts[i].TypePlain = Console.ReadLine();
             }
         }
 
-        //public void PrintDependentNumber()//4
-        //{
-        //    aER0FL0Ts = aER0FL0Ts.OrderBy(x => x.Number).ToList();
-        //    foreach (var item in aER0FL0Ts)
-        //    {
-        //        Console.WriteLine(item);
-        //    }
-        //}
+        public void PrintDependentNumber()//4
+        {
+            aER0FL0Ts = aER0FL0Ts.OrderBy(x => x.Number).ToList();
+            foreach (var item in aER0FL0Ts)
+            {
+                Console.WriteLine(item);
+            }
+        }
 
-        //public void PrintDependentDestination()//5
-        //{
-        //    aER0FL0Ts = aER0FL0Ts.OrderBy(x => x.Destination).ToList();
-        //    foreach (var item in aER0FL0Ts)
-        //    {
-        //        Console.WriteLine(item);
-        //    }
-        //}
+        public void PrintDependentDestination()//5
+        {
+            aER0FL0Ts = aER0FL0Ts.OrderBy(x => x.Destination).ToList();
+            foreach (var item in aER0FL0Ts)
+            {
+                Console.WriteLine(item);
+            }
+        }
     }
 }
