@@ -57,7 +57,7 @@ namespace Practica
             for (int i = 0; i < size; i++)
             {
                 marches.Add(new March());
-                Console.WriteLine("Введите данные по {0}-ому студенту:", i + 1);
+                Console.WriteLine("Введите данные по {0}-ому маршруту:", i + 1);
                 Console.WriteLine("Название начального пункта маршрута: ");
                 marches[i].Nachalniy_punkt_marshryta = Console.ReadLine();
                 Console.WriteLine("Название конечного пункта маршрута: ");
