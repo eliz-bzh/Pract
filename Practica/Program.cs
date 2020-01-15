@@ -28,8 +28,8 @@ namespace Practica
             //Notes notes = new Notes();
             //notes.PrintDependentSurname("B");
 
-            Znaks znaks = new Znaks();
-            znaks.PrintDependentSurname("XZ");
+            //Znaks znaks = new Znaks();
+            //znaks.PrintDependentSurname("XZ");
 
             Console.ReadKey();
         }
