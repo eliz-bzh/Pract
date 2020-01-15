@@ -12,6 +12,8 @@ namespace Practica
         public int NumberGroup { get; set; }
         public int[] Marks { get; set; } = new int[5];
 
+        public Student() { }
+
         public Student(string surname, int numberGroup, int[] marks)
         {
             this.Surname = surname;
@@ -28,6 +30,12 @@ namespace Practica
     class Students
     {
         private List<Student> students;
+
+        public Students()
+        {
+            students = new List<Student>();
+            FillList(5);
+        }
 
         public Students(List<Student> students)
         {
@@ -51,6 +59,25 @@ namespace Practica
                 if (el.Surname.Contains(name))
                 {
                     Console.WriteLine(el);
+                }
+            }
+        }
+
+        public void FillList(int size)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                students.Add(new Student());
+                Console.WriteLine("Введите данные по {0}-ому студенту:", i + 1);
+                Console.WriteLine("Фамилию: ");
+                students[i].Surname = Console.ReadLine();
+                Console.WriteLine("Номер группы: ");
+                students[i].NumberGroup = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Введите 5 оценок:");
+                for(int j = 0; j != 5; ++j)
+                {
+                    students[i].Marks[j] = Convert.ToInt32(Console.ReadLine());
                 }
             }
         }
