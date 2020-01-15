@@ -37,7 +37,7 @@ namespace Practica
         public Notes()
         {
             notes = new List<Note>();
-            FillList(2);
+            FillList(8);
         }
 
         public Notes(List<Note> note)
