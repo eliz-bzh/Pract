@@ -33,7 +33,7 @@ namespace Practica
             //workers.PrintDependentExperience(2);
 
             Trains trains = new Trains();
-            trains.PrintDependentTime(new DateTime());
+            trains.PrintDependentDestination("Minsk");
 
             Console.ReadKey();
         }
