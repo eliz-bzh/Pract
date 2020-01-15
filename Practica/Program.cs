@@ -22,7 +22,8 @@ namespace Practica
             //Trains trains = new Trains();
             //trains.PrintDependentDestination("Minsk");
 
-
+            Marches march = new Marches();
+            march.PrintDependentNomerMarshryta(34);
 
             Console.ReadKey();
         }
