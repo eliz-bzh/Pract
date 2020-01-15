@@ -34,7 +34,7 @@ namespace Practica
         public Marches()
         {
             marches = new List<March>();
-            FillList(2);
+            FillList(8);
         }
 
         public Marches(List<March> students)
