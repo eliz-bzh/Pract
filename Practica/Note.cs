@@ -60,7 +60,7 @@ namespace Practica
             for (int i = 0; i < size; i++)
             {
                 notes.Add(new Note());
-                Console.WriteLine("Введите данные по {0}-ому маршруту:", i + 1);
+                Console.WriteLine("Введите данные по {0}-ому ноте:", i + 1);
                 Console.WriteLine("Фамилия: ");
                 notes[i].Famaly = Console.ReadLine();
                 Console.WriteLine("Имя: ");
