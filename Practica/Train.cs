@@ -34,7 +34,7 @@ namespace Practica
         public Trains()
         {
             trains = new List<Train>();
-            FillList(8);
+            FillList(2);
         }
         public Trains(List<Train> trains)
         {
