@@ -31,6 +31,11 @@ namespace Practica
             //Znaks znaks = new Znaks();
             //znaks.PrintDependentSurname("XZ");
 
+            //Prices prices = new Prices();
+            //prices.PrintDependentName("KKK");
+
+
+
             Console.ReadKey();
         }
     }
