@@ -25,8 +25,11 @@ namespace Practica
             //Marches march = new Marches();
             //march.PrintDependentNomerMarshryta(34);
 
-            Notes notes = new Notes();
-            notes.PrintDependentSurname("B");
+            //Notes notes = new Notes();
+            //notes.PrintDependentSurname("B");
+
+            Znaks znaks = new Znaks();
+            znaks.PrintDependentSurname("XZ");
 
             Console.ReadKey();
         }
