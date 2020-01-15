@@ -31,6 +31,12 @@ namespace Practica
     {
         private List<Worker> workers;
 
+        public Workers()
+        {
+            workers = new List<Worker>();
+            FillList(2);
+            InitilizeLists();
+        }
         public Workers(List<Worker> workers)
         {
             this.workers = workers;
@@ -56,12 +62,13 @@ namespace Practica
         {
             for (int i = 0; i < size; i++)
             {
-                Console.WriteLine("Введите данные по {0}-ому рейсу:", i + 1);
-                Console.Write("Пункт назначения:");
+                workers.Add(new Worker());
+                Console.WriteLine("Введите данные по {0}-ому работнику:", i + 1);
+                Console.WriteLine("Фамилия:");
                 workers[i].Surname = Console.ReadLine();
-                Console.Write("Номер рейса:");
+                Console.WriteLine("Занимаемая должность:");
                 workers[i].Position = Console.ReadLine();
-                Console.Write("Тип самолёта:");
+                Console.WriteLine("Год поступления:");
                 workers[i].Year = Convert.ToInt32(Console.ReadLine());
             }
         }
