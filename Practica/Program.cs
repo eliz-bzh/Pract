@@ -34,7 +34,8 @@ namespace Practica
             //Prices prices = new Prices();
             //prices.PrintDependentName("KKK");
 
-
+            Orders orders = new Orders();
+            orders.PrintDependentPlatelshik(123);
 
             Console.ReadKey();
         }
