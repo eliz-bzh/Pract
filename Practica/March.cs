@@ -8,7 +8,6 @@ namespace Practica
 {
     class March
     {
-
         public string Nachalniy_punkt_marshryta { get; set; }
         public string Konechniy_punkt_marshryta { get; set; }
         public int Nomer_marshryta { get; set; }
