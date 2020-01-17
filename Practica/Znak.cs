@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace Practica
 {
-    class Znak
+    struct Znak
     {
         public string SurName { get; set; }
         public string Name { get; set; }
         public string Zodiak { get; set; }
-        public int[] Date { get; set; } = new int[3];
-
-        public Znak() { }
+        public int[] Date { get; set; }
         public Znak(string n, string sN, string z, int[] d)
         {
             Name = n;
@@ -29,15 +27,9 @@ namespace Practica
         }
     }
 
-    class Znaks
+    struct Znaks
     {
         private List<Znak> znaks;
-
-        public Znaks()
-        {
-            znaks = new List<Znak>();
-            FillList(2);
-        }
 
         public Znaks(List<Znak> znaks)
         {
@@ -58,18 +50,19 @@ namespace Practica
         {
             for (int i = 0; i < size; i++)
             {
+                var str = znaks[i];
                 znaks.Add(new Znak());
                 Console.WriteLine("Введите данные по {0}-ому человеку:", i + 1);
                 Console.WriteLine("Фамилия: ");
-                znaks[i].SurName = Console.ReadLine();
+                str.SurName = Console.ReadLine();
                 Console.WriteLine("Имя: ");
-                znaks[i].Name = Console.ReadLine();
+                str.Name = Console.ReadLine();
                 Console.WriteLine("Знак зодиака: ");
-                znaks[i].Zodiak = Console.ReadLine();
+                str.Zodiak = Console.ReadLine();
                 Console.WriteLine("Введите 3 числа даты:");
                 for (int j = 0; j != 3; ++j)
                 {
-                    znaks[i].Date[j] = Convert.ToInt32(Console.ReadLine());
+                    str.Date[j] = Convert.ToInt32(Console.ReadLine());
                 }
             }
         }
