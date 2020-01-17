@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Practica
 {
-    class Student
+    struct Student
     {
         public string Surname { get; set; }
         public int NumberGroup { get; set; }
-        public int[] Marks { get; set; } = new int[5];
-
-        public Student() { }
+        public int[] Marks { get; set; }
 
         public Student(string surname, int numberGroup, int[] marks)
         {
+            if (marks.Length != 5)
+                throw new Exception("Массив должен состоять из пяти чисел.");
             this.Surname = surname;
             this.NumberGroup = numberGroup;
             this.Marks = marks;
@@ -27,15 +27,9 @@ namespace Practica
         }
     }
 
-    class Students
+    struct Students
     {
         private List<Student> students;
-
-        public Students()
-        {
-            students = new List<Student>();
-            FillList(5);
-        }
 
         public Students(List<Student> students)
         {
@@ -68,16 +62,17 @@ namespace Practica
             for (int i = 0; i < size; i++)
             {
                 students.Add(new Student());
+                var str = students[i];
                 Console.WriteLine("Введите данные по {0}-ому студенту:", i + 1);
                 Console.WriteLine("Фамилию: ");
-                students[i].Surname = Console.ReadLine();
+                str.Surname = Console.ReadLine();
                 Console.WriteLine("Номер группы: ");
-                students[i].NumberGroup = Convert.ToInt32(Console.ReadLine());
+                str.NumberGroup = Convert.ToInt32(Console.ReadLine());
 
                 Console.WriteLine("Введите 5 оценок:");
                 for(int j = 0; j != 5; ++j)
                 {
-                    students[i].Marks[j] = Convert.ToInt32(Console.ReadLine());
+                    str.Marks[j] = Convert.ToInt32(Console.ReadLine());
                 }
             }
         }
