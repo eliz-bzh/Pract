@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Practica
 {
-    class AER0FL0T
+    struct AER0FL0T
     {
         public string Destination { get; set; }
         public int Number { get; set; }
         public string TypePlain { get; set; }
-
-        public AER0FL0T() { }
         public AER0FL0T(string destination, int number, string typePlain)
         {
             Destination = destination;
@@ -26,15 +24,9 @@ namespace Practica
         }
     }
 
-    class AER0FL0TS
+    struct AER0FL0TS
     {
         private List<AER0FL0T> aER0FL0Ts;
-
-        public AER0FL0TS()
-        {
-            this.aER0FL0Ts = new List<AER0FL0T>();
-            FillList(7);
-        }
         public AER0FL0TS(List<AER0FL0T> aER0FL0Ts)
         {
             this.aER0FL0Ts = aER0FL0Ts;
@@ -71,13 +63,14 @@ namespace Practica
             for (int i = 0; i < size; i++)
             {
                 aER0FL0Ts.Add(new AER0FL0T());
+                var str = aER0FL0Ts[i];
                 Console.WriteLine("Введите данные по {0}-ому рейсу:", i + 1);
                 Console.WriteLine("Пункт назначения:");
-                aER0FL0Ts[i].Destination = Console.ReadLine();
+                str.Destination = Console.ReadLine();
                 Console.WriteLine("Номер рейса:");
-                aER0FL0Ts[i].Number = Convert.ToInt32(Console.ReadLine());
+                str.Number = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Тип самолёта:");
-                aER0FL0Ts[i].TypePlain = Console.ReadLine();
+                str.TypePlain = Console.ReadLine();
             }
         }
 
