@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Practica
 {
-    class March
+    struct March
     {
         public string Nachalniy_punkt_marshryta { get; set; }
         public string Konechniy_punkt_marshryta { get; set; }
         public int Nomer_marshryta { get; set; }
-
-        public March() { }
         public March(string StartPoint, string FinalPoint, int Number)
         {
             Nachalniy_punkt_marshryta = StartPoint;
@@ -27,15 +25,9 @@ namespace Practica
 
     }
 
-    class Marches
+    struct Marches
     {
         private List<March> marches;
-
-        public Marches()
-        {
-            marches = new List<March>();
-            FillList(8);
-        }
 
         public Marches(List<March> students)
         {
@@ -56,14 +48,15 @@ namespace Practica
         {
             for (int i = 0; i < size; i++)
             {
+                var str = marches[i];
                 marches.Add(new March());
                 Console.WriteLine("Введите данные по {0}-ому маршруту:", i + 1);
                 Console.WriteLine("Название начального пункта маршрута: ");
-                marches[i].Nachalniy_punkt_marshryta = Console.ReadLine();
+                str.Nachalniy_punkt_marshryta = Console.ReadLine();
                 Console.WriteLine("Название конечного пункта маршрута: ");
-                marches[i].Konechniy_punkt_marshryta = Console.ReadLine();
+                str.Konechniy_punkt_marshryta = Console.ReadLine();
                 Console.WriteLine("Номер маршрута");
-                marches[i].Nomer_marshryta = Convert.ToInt32(Console.ReadLine());
+                str.Nomer_marshryta = Convert.ToInt32(Console.ReadLine());
             }
         }
 
