@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Practica
 {
-    class Worker
+    struct Worker
     {
         public string Surname { get; set; }
         public string Position { get; set; }
         public int Year { get; set; }
         public int Experience { get; set; }
-
-        public Worker() { }
         public Worker(string surname, string position, int year)
         {
+            DateTime time = DateTime.Now;
             Surname = surname;
             Position = position;
             Year = year;
+            Experience = time.Year - year;
         }
 
         public override string ToString()
@@ -27,21 +27,12 @@ namespace Practica
         }
     }
 
-    class Workers
+    struct Workers
     {
         private List<Worker> workers;
-
-        public Workers()
-        {
-            workers = new List<Worker>();
-            FillList(2);
-            InitilizeLists();
-        }
         public Workers(List<Worker> workers)
         {
             this.workers = workers;
-
-            InitilizeLists();
         }
 
         public void Add(Worker st)
@@ -49,35 +40,28 @@ namespace Practica
             workers.Add(st);
         }
 
-        public void InitilizeLists()
-        {
-            DateTime time = DateTime.Now;
-            foreach (var item in workers)
-            {
-                item.Experience = time.Year - item.Year;
-            }
-        }
-
         public void FillList(int size)
         {
             for (int i = 0; i < size; i++)
             {
                 workers.Add(new Worker());
+                var str = workers[i];
                 Console.WriteLine("Введите данные по {0}-ому работнику:", i + 1);
                 Console.WriteLine("Фамилия:");
-                workers[i].Surname = Console.ReadLine();
+                str.Surname = Console.ReadLine();
                 Console.WriteLine("Занимаемая должность:");
-                workers[i].Position = Console.ReadLine();
+                str.Position = Console.ReadLine();
                 Console.WriteLine("Год поступления:");
-                workers[i].Year = Convert.ToInt32(Console.ReadLine());
+                str.Year = Convert.ToInt32(Console.ReadLine());
             }
         }
 
         public void PrintDependentExperience(int experience)//6
         {
+            DateTime time = DateTime.Now;
             foreach (var item in workers)   
             {
-                if(item.Experience > experience)
+                if(time.Year - item.Year > experience)
                 {
                     Console.WriteLine(item);
                 }
