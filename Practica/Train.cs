@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Practica
 {
-    class Train
+    struct Train
     {
         public string Destination { get; set; }
         public int NumberTrain { get; set; }
         public DateTime Time { get; set; }
-
-        public Train() { }
 
         public Train(string destination, int numberTrain, DateTime time)
         {
@@ -27,15 +25,9 @@ namespace Practica
         }
     }
 
-    class Trains
+    struct Trains
     {
-        private List<Train> trains;
-
-        public Trains()
-        {
-            trains = new List<Train>();
-            FillList(2);
-        }
+        public List<Train> trains;
         public Trains(List<Train> trains)
         {
             this.trains = trains;
@@ -50,12 +42,14 @@ namespace Practica
         {
             for (int i = 0; i < size; i++)
             {
+                
                 trains.Add(new Train());
+                var str = trains[i];
                 Console.WriteLine("Введите данные по {0}-ому рейсу:", i + 1);
                 Console.WriteLine("Пункт назначения: ");
-                trains[i].Destination = Console.ReadLine();
+                str.Destination = Console.ReadLine();
                 Console.WriteLine("Номер поезда: ");
-                trains[i].NumberTrain = Convert.ToInt32(Console.ReadLine());
+                str.NumberTrain = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Время отправления");
 
                 Console.WriteLine("Введите день отправления: ");
@@ -66,8 +60,9 @@ namespace Practica
 
                 Console.WriteLine("Введите минуты отправления: ");
                 int minutes = Convert.ToInt32(Console.ReadLine());
-                trains[i].Time = new DateTime(DateTime.Now.Year, DateTime.Now.Month, day, hour, minutes, 0);
+                str.Time = new DateTime(DateTime.Now.Year, DateTime.Now.Month, day, hour, minutes, 0);
             }
+            //return new List<Train>(trains);
         }
 
         public void PrintDependentTime(DateTime time)//7
