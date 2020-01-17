@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Practica
 {
-    class Price
+    struct Price
     {
         public string Name { get; set; }
         public string Shop { get; set; }
         public double CostInRubli { get; set; }
-
-        public Price() { }
 
         public Price(string name, string shop, double costInRubli)
         {
@@ -27,15 +25,9 @@ namespace Practica
         }
     }
 
-    class Prices
+    struct Prices
     {
         private List<Price> prices;
-
-        public Prices()
-        {
-            prices = new List<Price>();
-            FillList(2);
-        }
 
         public Prices(List<Price> prices)
         {
@@ -56,14 +48,15 @@ namespace Practica
         {
             for (int i = 0; i < size; i++)
             {
+                var str = prices[i];
                 prices.Add(new Price());
                 Console.WriteLine("Введите данные по {0}-ому магазину:", i + 1);
                 Console.WriteLine("Название товара: ");
-                prices[i].Name = Console.ReadLine();
+                str.Name = Console.ReadLine();
                 Console.WriteLine("Название магазина: ");
-                prices[i].Shop = Console.ReadLine();
+                str.Shop = Console.ReadLine();
                 Console.WriteLine("Стоимость в рублях: ");
-                prices[i].CostInRubli = Convert.ToInt32(Console.ReadLine());
+                str.CostInRubli = Convert.ToInt32(Console.ReadLine());
             }
         }
 
