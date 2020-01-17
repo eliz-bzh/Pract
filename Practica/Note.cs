@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace Practica
 {
-    class Note
+    struct Note
     {
         public string Famaly { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
-        public int[] Birthday { get; set; } = new int[3];
-        public Note() { }
+        public int[] Birthday { get; set; }
         public Note(string famaly, string name, string phone, int[] birtday)
         {
-            if (Birthday.Length != 3)
+            if (birtday.Length != 3)
                 throw new Exception("Массив должен состоять из трёх чисел.");
             Famaly = famaly;
             Name = name;
@@ -33,12 +32,6 @@ namespace Practica
     class Notes
     {
         private List<Note> notes;
-
-        public Notes()
-        {
-            notes = new List<Note>();
-            FillList(8);
-        }
 
         public Notes(List<Note> note)
         {
@@ -59,18 +52,19 @@ namespace Practica
         {
             for (int i = 0; i < size; i++)
             {
+                var str = notes[i];
                 notes.Add(new Note());
                 Console.WriteLine("Введите данные по {0}-ому ноте:", i + 1);
                 Console.WriteLine("Фамилия: ");
-                notes[i].Famaly = Console.ReadLine();
+                str.Famaly = Console.ReadLine();
                 Console.WriteLine("Имя: ");
-                notes[i].Name = Console.ReadLine();
+                str.Name = Console.ReadLine();
                 Console.WriteLine("Номер телефона: ");
-                notes[i].Phone = Console.ReadLine();
+                str.Phone = Console.ReadLine();
                 Console.WriteLine("Введите 3 числа даты:");
                 for (int j = 0; j != 3; ++j)
                 {
-                    notes[i].Birthday[j] = Convert.ToInt32(Console.ReadLine());
+                    str.Birthday[j] = Convert.ToInt32(Console.ReadLine());
                 }
             }
         }
