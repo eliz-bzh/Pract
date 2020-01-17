@@ -14,6 +14,8 @@ namespace Practica
         public int[] Date { get; set; }
         public Znak(string n, string sN, string z, int[] d)
         {
+            if (d.Length != 3)
+                throw new Exception("Массив должен состоять из трёх чисел.");
             Name = n;
             SurName = sN;
             Zodiak = z;
